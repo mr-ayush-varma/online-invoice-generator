@@ -7,8 +7,8 @@ import HistoryModal from "../components/HistoryModal";
 const AddBill = ({ signOut, userData, setLoading }) => {
   const [formData, setFormData] = useState({
     bank_name: "AGNIVESH BAIJNATH VERMA",
-    account_no: "30994217248",
-    ifsc: "SBIN0010947",
+    account_no: "08420100013297",
+    ifsc: "BARB0INDPAN",
   });
   const [isHistoryModalOpen, setIsHistoryModalOpen] = useState(false);
   const [isLoggingOut, setIsLoggingOut] = useState(false);
