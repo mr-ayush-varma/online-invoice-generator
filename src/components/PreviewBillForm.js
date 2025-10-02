@@ -25,15 +25,15 @@ const PreviewBillForm = ({ formData, componentRef }) => {
         <section className="flex justify-between items-start p-6 border-b border-gray-300 text-sm print:text-xs">
           <div className="space-y-1 text-gray-800">
             <h2 className="font-semibold text-base">Billed To</h2>
-            <p>{formData?.name || "Iris Rush"}</p>
-            <p>{formData?.address || "Voluptatem perferend"}</p>
-            <p>Contact: {formData?.phone || "89"}</p>
+            <p>{formData?.name}</p>
+            <p>{formData?.address}</p>
+            <p>Contact: {formData?.phone}</p>
           </div>
           <div className="text-right space-y-1 text-gray-800">
             <p>
-              Invoice No: <strong>{formData?.billNo || "12"}</strong>
+              Invoice No: <strong>#{formData?.billNo}</strong>
             </p>
-            <p>Date: {formData?.date || "2009-07-21"}</p>
+            <p>Date: {formData?.date}</p>
             {/* <p>Month: {formData?.month || "July"}</p> */}
           </div>
         </section>
@@ -60,9 +60,13 @@ const PreviewBillForm = ({ formData, componentRef }) => {
                 <td className="py-3 px-2 text-right">
                   {Number(formData?.amount || 0).toFixed(2)}
                 </td>
-                <td className="py-3 px-2 text-right">{Number(formData?.qty || 0)}</td>
                 <td className="py-3 px-2 text-right">
-                  {(Number(formData?.amount || 0) * Number(formData?.qty || 1)).toFixed(2)}
+                  {Number(formData?.qty || 0)}
+                </td>
+                <td className="py-3 px-2 text-right">
+                  {(
+                    Number(formData?.amount || 0) * Number(formData?.qty || 1)
+                  ).toFixed(2)}
                 </td>
               </tr>
             </tbody>
@@ -84,9 +88,17 @@ const PreviewBillForm = ({ formData, componentRef }) => {
             )}
           </div>
           <div className="text-right space-y-2 text-gray-800">
-            <p>Subtotal: ₹ {(Number(formData?.amount || 0) * Number(formData?.qty || 1)).toFixed(2)}</p>
+            <p>
+              Subtotal: ₹{" "}
+              {(
+                Number(formData?.amount || 0) * Number(formData?.qty || 1)
+              ).toFixed(2)}
+            </p>
             <p className="font-bold text-lg print:text-base">
-              Total: ₹ {(Number(formData?.amount || 0) * Number(formData?.qty || 1)).toFixed(2)}
+              Total: ₹{" "}
+              {(
+                Number(formData?.amount || 0) * Number(formData?.qty || 1)
+              ).toFixed(2)}
             </p>
           </div>
         </section>

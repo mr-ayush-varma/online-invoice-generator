@@ -151,7 +151,11 @@ const AddBill = ({ signOut, userData, setLoading }) => {
 
       {/* History Modal */}
       {isHistoryModalOpen && (
-        <HistoryModal toggle={setIsHistoryModalOpen} />
+        <HistoryModal
+          formData={formData}
+          setFormData={setFormData}
+          toggle={setIsHistoryModalOpen}
+        />
       )}
     </div>
   );
